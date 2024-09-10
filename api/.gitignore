@@ -9,6 +9,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+appsettings.Development.json
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -235,6 +236,9 @@ ClientBin/
 *~
 *.dbmdl
 *.dbproj.schemaview
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
 *.jfm
 *.pfx
 *.publishsettings

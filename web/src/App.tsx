@@ -1,16 +1,17 @@
-import { Sidebar, Header, Main, Footer } from "@/components";
+import { RouterProvider, createRouter } from "@tanstack/react-router";
+
+import { routeTree } from "./routeTree.gen";
+
+const router = createRouter({ routeTree });
+
+declare module "@tanstack/react-router" {
+  interface Register {
+    router: typeof router;
+  }
+}
 
 const App = () => {
-  return (
-    <div className="flex h-screen">
-      <Sidebar />
-      <div className="flex-1 flex flex-col">
-        <Header />
-        <Main />
-        <Footer />
-      </div>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 };
 
-export default App;
+export { App };

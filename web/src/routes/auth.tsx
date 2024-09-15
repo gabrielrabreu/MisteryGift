@@ -1,20 +1,19 @@
 import { createFileRoute, redirect, Outlet } from "@tanstack/react-router";
 
+import { useAuthStore } from "@/store/authStore";
+
 export const Route = createFileRoute("/auth")({
-  beforeLoad: async ({ location }) => {
-    if (false) {
+  beforeLoad: () => {
+    const { isAuthenticated } = useAuthStore.getState();
+    if (isAuthenticated) {
       throw redirect({
         to: "/",
-        search: {
-          redirect: location.href,
-        },
       });
     }
   },
   component: () => {
     return (
       <div className="flex h-screen">
-        Auth Layout
         <Outlet />
       </div>
     );
